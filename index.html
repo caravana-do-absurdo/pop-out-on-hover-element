@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<body>
+  <div class="element-wrapper">
+    <img class="background-image" src="podcast_rpg_background.png" />
+    <img class="foreground-image" src="podcast_rpg_foreground.png" />
+    <p class="podcast-name">Create character</p>
+  </div>
+</body>
+
+<style>
+  .element-wrapper {
+    position: relative;
+    height: 600px;
+    width: 400px;
+    perspective: 800px;
+    transition: .4s ease;
+    text-align: center;
+  }
+  
+  .background-image {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 400px;
+    transition: .4s ease;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+    filter: brightness(100%);
+  }
+  
+  .element-wrapper:hover .background-image {
+    transform: rotateX(20deg);
+    filter: brightness(50%);
+  }
+  
+  .foreground-image {
+    opacity: 0;
+    position: absolute; 
+    bottom: 0px; 
+    left: 0px; 
+    width: 400px;
+    transition: .4s ease;
+    filter: brightness(30%);
+  }
+  
+  .element-wrapper:hover .foreground-image {
+    filter: brightness(100%);
+    opacity: 1;
+    bottom: 70px;
+    display: block;
+  }
+  
+  .podcast-name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: .4s ease;
+    font-size: 40px;
+    color: white;
+    position: absolute; 
+    bottom: 0px;
+    text-align: center;
+    width: 400px;
+  }
+  
+  .element-wrapper:hover .podcast-name {
+    bottom: 60px;
+  }
+</style>
+
+
+</html>
