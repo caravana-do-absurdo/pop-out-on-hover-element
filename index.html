@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 
 <body>
+  <!-- Example 1 -->
+  <p class="title">Exemplo 1</p>
   <div class="element-wrapper">
-    <img class="background-image" src="option_background.png" />
-    <img class="foreground-image" src="option_foreground.png" />
-    <!-- <p class="podcast-name">Create character</p> -->
+    <img class="background-image" src="fundo2.png" />
+    <img class="static-foreground-image" src="placa.png" />
+    <img class="foreground-image" src="placa.png" />
+    <img class="podcast-name-example-1" src="Logo-podcasts.png" />
   </div>
+  <p class="title">----------------------------------</p>
+
+  <!-- Example 2 -->
+  <p class="title">Exemplo 2</p>
+  <div class="element-wrapper">
+    <img class="background-image" src="fundo2.png" />
+    <img class="foreground-image" src="placa.png" />
+    <img class="podcast-name" src="Logo-podcasts.png" />
+  </div>
+  <p class="title">----------------------------------</p>
+
+  <!-- Example 3 -->
+  <p class="title">Exemplo 3</p>
+  <div class="element-wrapper">
+    <img class="background-image" src="fundo2.png" />
+    <img class="static-foreground-image" src="placa.png" />
+    <img class="foreground-image" src="placa.png" />
+    <img class="podcast-name" src="Logo-podcasts.png" />
+  </div>
+  <p class="title">----------------------------------</p>
 </body>
 
 <style>
   body {
     background-color: #3a3a3a;
+  }
+
+  .title {
+    font-size: 24px;
+    color: white;
   }
 
   .element-wrapper {
@@ -21,30 +49,45 @@
     perspective: 800px;
     transition: .4s ease;
     text-align: center;
+    /* background-color: red; */
   }
   
   .background-image {
     position: absolute;
     bottom: 0px;
     left: 0px;
-    width: 400px;
+    width: 80%;
+    height: auto;
     transition: .4s ease;
     transform-style: preserve-3d;
     transform: rotateX(0deg);
     filter: brightness(100%);
   }
-  
+
   .element-wrapper:hover .background-image {
-    transform: rotateX(20deg);
-    filter: brightness(50%);
+    transform: rotateX(40deg);
+    filter: brightness(50%) blur(2px);
+  }
+
+  .static-foreground-image {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+    transition: .1s ease;
+  }
+
+  .element-wrapper:hover .static-foreground-image {
+    opacity: 0;
   }
   
   .foreground-image {
     opacity: 0;
     position: absolute; 
     bottom: 0px; 
-    left: -50px; 
-    width: 500px;
+    left: -10%; 
+    width: 100%;
     transition: .4s ease;
     filter: brightness(30%);
   }
@@ -52,24 +95,41 @@
   .element-wrapper:hover .foreground-image {
     filter: brightness(100%);
     opacity: 1;
-    bottom: 70px;
+    bottom: 130px;
     display: block;
   }
   
   .podcast-name {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     transition: .4s ease;
-    font-size: 40px;
-    color: white;
     position: absolute; 
     bottom: 0px;
-    text-align: center;
-    width: 400px;
+    left: 15%;
+    max-width: 50%;
+    margin: auto;
   }
   
   .element-wrapper:hover .podcast-name {
-    bottom: 60px;
+    bottom: 30px;
+    transform: scale(1.3);
   }
+
+  .podcast-name-example-1 {
+    transition: .4s ease;
+    position: absolute; 
+    bottom: 0px;
+    right: 20%;
+    max-width: 30%;
+    margin: auto;
+  }
+
+  .element-wrapper:hover .podcast-name-example-1 {
+    bottom: 30px;
+    right: 35%;
+    transform: scale(1.3);
+    max-width: 40%;
+  }
+
+
 </style>
 
 
