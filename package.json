@@ -1,0 +1,23 @@
+{
+  "name": "pop-out-on-hover-element",
+  "version": "1.0.0",
+  "description": "Simple component that shows a foreground image and a background images simulating a 3d \"pop out\" animation",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caravana-do-absurdo/pop-out-on-hover-element.git"
+  },
+  "author": "Gabcvit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caravana-do-absurdo/pop-out-on-hover-element/issues"
+  },
+  "homepage": "https://github.com/caravana-do-absurdo/pop-out-on-hover-element#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
+}

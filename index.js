@@ -1,6 +1,6 @@
 const http = require('http');
 const url = require('url');
-const ClickablePodcastCard = require('./src/ClickablePodcastCard');
+const ClickablePodcastCard = require('./src/ClickablePodcastCard/ClickablePodcastCard');
 
 http.createServer(async (req, res) => {
   const reqURL = url.parse(req.url, true);
