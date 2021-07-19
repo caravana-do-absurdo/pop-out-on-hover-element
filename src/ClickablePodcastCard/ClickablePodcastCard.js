@@ -1,6 +1,18 @@
 const PodcastImageFetcher = require("../PodcastImageFetcher/PodcastImageFetcher");
+const PodcastTypesController = require("../PodcastTypesController/PodcastTypesController");
+
+const DEFAULT_SIZE = 500
 
 const ClickablePodcastCard = async (podcastID, width) => {
+  let { checkValidityOfPodcastID } = PodcastTypesController()
+  width = parseInt(width) || DEFAULT_SIZE
+
+  if(!podcastID) {
+    throw({message: 'podcastID missing!'})
+  } else if(!checkValidityOfPodcastID(podcastID)) {
+    throw({message: 'invalid podcastID!'})
+  }
+
   const { getForegroundImageURL, getBackgroundImageURL } = PodcastImageFetcher(podcastID);
 
   const foregroundImgURL = getForegroundImageURL()
@@ -92,4 +104,7 @@ const ClickablePodcastCard = async (podcastID, width) => {
   `;
 };
 
-module.exports = ClickablePodcastCard;
+module.exports = {
+  DEFAULT_SIZE,
+  ClickablePodcastCard,
+};
