@@ -4,12 +4,12 @@ const { ClickablePodcastCard } = require('./src/ClickablePodcastCard/ClickablePo
 
 http.createServer(async (req, res) => {
   const reqURL = url.parse(req.url, true);
-  let { podcast, width } = reqURL.query;
+  let { podcastID, width } = reqURL.query;
 
   let result = null
 
   try {
-    result = await ClickablePodcastCard(podcast, width);
+    result = await ClickablePodcastCard(podcastID, width);
 
     res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     res.setHeader('Expires', '-1');
