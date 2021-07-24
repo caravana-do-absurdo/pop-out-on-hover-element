@@ -1,12 +1,12 @@
 const { expect } = require("@jest/globals");
-const PodcastImageFetcher = require("./PodcastImageFetcher");
+const PodcastInfoFetcher = require("./PodcastInfoFetcher");
 
 describe("Podcast Image Fetcher", () => {
   it("should generate a valid foreground image URL for a valid Podcast ID", async () => {
 
     const podcastID = 'RPG'
 
-    const { getForegroundImageURL } = PodcastImageFetcher(podcastID);
+    const { getForegroundImageURL } = PodcastInfoFetcher(podcastID);
 
     const foregroundImageURL = getForegroundImageURL()
 
@@ -19,7 +19,7 @@ describe("Podcast Image Fetcher", () => {
 
     const podcastID = 'RPG'
 
-    const { getBackgroundImageURL } = PodcastImageFetcher(podcastID);
+    const { getBackgroundImageURL } = PodcastInfoFetcher(podcastID);
 
     const backgroundImageURL = getBackgroundImageURL()
 

@@ -1,32 +1,35 @@
-const PodcastImageFetcher = require("../PodcastImageFetcher/PodcastImageFetcher");
+const PodcastInfoFetcher = require("../PodcastInfoFetcher/PodcastInfoFetcher");
 const PodcastTypesController = require("../PodcastTypesController/PodcastTypesController");
 
 const DEFAULT_SIZE = 500
 
 const ClickablePodcastCard = async (podcastID, width) => {
-  let { checkValidityOfPodcastID } = PodcastTypesController()
-  width = parseInt(width) || DEFAULT_SIZE
-
-  if(!podcastID) {
-    throw({message: 'podcastID missing!'})
-  } else if(!checkValidityOfPodcastID(podcastID)) {
-    throw({message: 'invalid podcastID!'})
+  try {
+    isPodcastValid(podcastID)
+  } catch(error) {
+    console.log('catched', error)
+    throw(error)
   }
 
-  const { getForegroundImageURL, getBackgroundImageURL } = PodcastImageFetcher(podcastID);
-
-  const foregroundImgURL = getForegroundImageURL()
-  const backgroundImgURL = getBackgroundImageURL()
+  const {foregroundImgURL, backgroundImgURL, onClickURLToRedirect} = fetchAllDataForPodcastID(podcastID)
+  width = parseInt(width) || DEFAULT_SIZE
 
   return `
-    <div class="element-wrapper">
-      <img class="background-image" src="${backgroundImgURL}" />
-      <img class="static-foreground-image" src="${foregroundImgURL}" />
-      <img class="foreground-image" src="${foregroundImgURL}" />
-      <img class="podcast-name" src="https://github.com/caravana-do-absurdo/pop-out-on-hover-element/blob/main/res/img/caravana_podcasts.png?raw=true" />
-    </div>
+    <a class="link-wrapper" href="${onClickURLToRedirect}">
+      <div class="element-wrapper">
+        <img class="background-image" src="${backgroundImgURL}" />
+        <img class="static-foreground-image" src="${foregroundImgURL}" />
+        <img class="foreground-image" src="${foregroundImgURL}" />
+        <img class="podcast-name" src="https://github.com/caravana-do-absurdo/pop-out-on-hover-element/blob/main/res/img/caravana_podcasts.png?raw=true" />
+      </div>
+    </a>
     
     <style>
+      a.link-wrapper {
+        height: ${width * 1.30}px;
+        width: ${width}px;
+      }
+
       .element-wrapper {
         margin: 0px 0px ${width * 0.05}px ${width * 0.1}px;
         position: relative;
@@ -103,6 +106,28 @@ const ClickablePodcastCard = async (podcastID, width) => {
   </html>
   `;
 };
+
+const isPodcastValid = (podcastID) => {
+  let { checkValidityOfPodcastID } = PodcastTypesController()
+
+  if(!podcastID) {
+    throw({message: 'podcastID missing!'})
+  } else if(!checkValidityOfPodcastID(podcastID)) {
+    throw({message: 'invalid podcastID!'})
+  }
+
+  return true
+};
+
+const fetchAllDataForPodcastID = (podcastID) => {
+  const { getForegroundImageURL, getBackgroundImageURL, getOnClickURLToRedirect } = PodcastInfoFetcher(podcastID);
+
+  const foregroundImgURL = getForegroundImageURL()
+  const backgroundImgURL = getBackgroundImageURL()
+  const onClickURLToRedirect = getOnClickURLToRedirect()
+
+  return {foregroundImgURL, backgroundImgURL, onClickURLToRedirect}
+}
 
 module.exports = {
   DEFAULT_SIZE,
