@@ -15,7 +15,7 @@ const ClickablePodcastCard = async (podcastID, width) => {
   width = parseInt(width) || DEFAULT_SIZE
 
   return `
-    <a class="link-wrapper" href="${onClickURLToRedirect}">
+    <a class="link-wrapper" href="${onClickURLToRedirect}" target="_blank">
       <div class="element-wrapper">
         <img class="background-image" src="${backgroundImgURL}" />
         <img class="static-foreground-image" src="${foregroundImgURL}" />
