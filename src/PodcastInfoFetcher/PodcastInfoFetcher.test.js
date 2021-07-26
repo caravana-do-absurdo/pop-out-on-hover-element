@@ -28,5 +28,52 @@ describe("Podcast Image Fetcher", () => {
     expect(backgroundImageURL).toContain('https://github.com/caravana-do-absurdo/pop-out-on-hover-element/')
   });
 
+  it("should generate a valid URL for PodcastID = 'rpg'", async () => {
+
+    const podcastID = 'RPG'
+
+    const { getOnClickURLToRedirect } = PodcastInfoFetcher(podcastID);
+
+    const redirectURL = getOnClickURLToRedirect()
+
+    expect(redirectURL).toBeTruthy()
+    expect(redirectURL).toContain('caravanadoabsurdo.com.br/tag/mas-e-o-rpg/')
+  });
+
+  it("should generate a valid URL for PodcastID = 'cos'", async () => {
+
+    const podcastID = 'COS'
+
+    const { getOnClickURLToRedirect } = PodcastInfoFetcher(podcastID);
+
+    const redirectURL = getOnClickURLToRedirect()
+
+    expect(redirectURL).toBeTruthy()
+    expect(redirectURL).toContain('caravanadoabsurdo.com.br/tag/maldicao-de-strahd/')
+  });
+
+  it("should generate a valid URL for PodcastID = 'dl'", async () => {
+
+    const podcastID = 'DL'
+
+    const { getOnClickURLToRedirect } = PodcastInfoFetcher(podcastID);
+
+    const redirectURL = getOnClickURLToRedirect()
+
+    expect(redirectURL).toBeTruthy()
+    expect(redirectURL).toContain('caravanadoabsurdo.com.br/tag/descanso-longo/')
+  });
+
+  it("should return null when PodcastID has an invalid value", async () => {
+
+    const podcastID = 'bla_bla_bla'
+
+    const { getOnClickURLToRedirect } = PodcastInfoFetcher(podcastID);
+
+    const redirectURL = getOnClickURLToRedirect()
+
+    expect(redirectURL).toBe(null)
+  });
+
   
 });

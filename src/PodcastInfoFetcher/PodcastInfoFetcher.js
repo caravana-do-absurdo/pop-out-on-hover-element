@@ -7,6 +7,10 @@ const podcastURLs = {
   dl:  'https://caravanadoabsurdo.com.br/tag/descanso-longo/'
 }
 
+const getTreatedPodcastID = (podcastID) => {
+  return podcastID.toLowerCase()
+}
+
 const PodcastInfoFetcher = (podcastID) => ({
   getForegroundImageURL: () => {
     return foregroundConstantURL.replace('$ID_OF_PODCAST', podcastID.toLowerCase());
@@ -15,7 +19,7 @@ const PodcastInfoFetcher = (podcastID) => ({
     return backgroundConstantURL.replace('$ID_OF_PODCAST', podcastID.toLowerCase());
   },
   getOnClickURLToRedirect: () => {
-    return podcastURLs[podcastID] ? podcastURLs[podcastID] : null
+    return podcastURLs[getTreatedPodcastID(podcastID)] ? podcastURLs[getTreatedPodcastID(podcastID)] : null
   }
 });
 
