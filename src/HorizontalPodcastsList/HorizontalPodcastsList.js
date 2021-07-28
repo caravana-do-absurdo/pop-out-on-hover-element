@@ -19,7 +19,17 @@ const HorizontalPodcastsList = async (width) => {
         width: 100%;
         display: flex;
         flex-direction: row;
-        
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+
+      .horizontal-slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      .horizontal-slider {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
       }
 
       a.link-wrapper {
