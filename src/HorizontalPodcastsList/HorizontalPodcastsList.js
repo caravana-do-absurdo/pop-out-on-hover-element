@@ -4,7 +4,7 @@ const PodcastTypesController = require("../PodcastTypesController/PodcastTypesCo
 const DEFAULT_SIZE = 500
 
 const HorizontalPodcastsList = async (width) => {
-  let arrayOfPodcastIDs = ['rpg', 'rpg', 'rpg', 'rpg']
+  let arrayOfPodcastIDs = ['rpg', 'dl', 'rpg', 'rpg']
 
   let renderedClickablePodcastCards = await renderClickaBlePodcastCardsForIDs(arrayOfPodcastIDs, width)
   width = parseInt(width) || DEFAULT_SIZE
