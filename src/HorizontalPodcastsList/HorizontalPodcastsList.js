@@ -128,5 +128,6 @@ const renderClickaBlePodcastCardsForIDs = async (podcastIDs, width) => {
 };
 
 module.exports = {
+  DEFAULT_SIZE,
   HorizontalPodcastsList,
 };
