@@ -4,6 +4,7 @@
   "description": "Simple component that shows a foreground image and a background images simulating a 3d \"pop out\" animation",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest",
     "test-watch": "jest --watchAll"
   },
