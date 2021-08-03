@@ -1,5 +1,5 @@
 
-const podcastTypes = ['rpg', 'cos', 'dl']
+const podcastTypes = ['rpg', 'dl', 'cos']
 
 const PodcastTypesController = () => ({
   getAllPodcastTypes: () => {
