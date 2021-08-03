@@ -45,6 +45,7 @@ const HorizontalPodcastsList = async (width) => {
         width: ${width}px;
         perspective: ${width * 1.6}px;
         transition: .4s ease;
+        -webkit-transition: .4s ease;
         text-align: center;
       }
       
@@ -58,57 +59,53 @@ const HorizontalPodcastsList = async (width) => {
         transform-style: preserve-3d;
         transform: rotateX(0deg);
         filter: brightness(100%);
+        -webkit-transition: .4s ease;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: rotateX(0deg);
+        -webkit-filter: brightness(100%);
       }
     
       .element-wrapper:hover .background-image {
         transform: rotateX(40deg);
         filter: brightness(50%) blur(2px);
+        -webkit-transform: rotateX(40deg);
+        -webkit-filter: brightness(50%) blur(2px);
       }
-    
-      .static-foreground-image {
+      
+      .foreground-image {
         position: absolute;
         bottom: 0px;
         left: 0px;
         width: 80%;
-        height: auto;
-        transition: .1s ease;
-      }
-    
-      .element-wrapper:hover .static-foreground-image {
-        opacity: 0;
-      }
-      
-      .foreground-image {
-        opacity: 0;
-        position: absolute; 
-        bottom: 0px; 
-        left: -10%; 
-        width: 100%;
-        transition: .4s ease;
-        filter: brightness(30%);
+        transition: .5s ease;
+        filter: brightness(90%);
+        -webkit-transition: .5s ease;
+        -webkit-filter: brightness(90%)
       }
       
       .element-wrapper:hover .foreground-image {
-        filter: brightness(100%);
         opacity: 1;
-        bottom: ${width * 0.26}px;
         display: block;
+        filter: brightness(100%);
+        -webkit-filter: brightness(100%)
+        transform: translate3d(0px, -${width * 0.35}px, ${width / 3}px);
+        -webkit-transform: translate3d(0px, -${width * 0.35}px, ${width / 3}px);
       }
       
       .podcast-name {
-        transition: .4s ease;
+        z-Index: 10;
         position: absolute; 
         bottom: 0px;
         right: 20%;
         max-width: 30%;
         margin: auto;
+        transition: .5s ease;
+        -webkit-transition: .5s ease;
       }
       
       .element-wrapper:hover .podcast-name {
-        bottom: ${width * 0.06}px;
-        right: 35%;
-        transform: scale(1.3);
-        max-width: 40%;
+        transform: scale(1.3) translate3d(-${width * 0.15}px, -${width * 0.15}px, ${width / 3}px);
+        -webkit-transform: scale(1.3) translate3d(-${width * 0.15}px, -${width * 0.15}px, ${width / 3}px);
       }
     </style>
   </html>
