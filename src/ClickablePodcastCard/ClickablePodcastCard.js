@@ -18,7 +18,6 @@ const ClickablePodcastCard = async (podcastID, width) => {
     <a class="link-wrapper" href="${onClickURLToRedirect}" target="_blank">
       <div class="element-wrapper">
         <img class="background-image" src="${backgroundImgURL}" />
-        <img class="static-foreground-image" src="${foregroundImgURL}" />
         <img class="foreground-image" src="${foregroundImgURL}" />
         <img class="podcast-name" src="https://github.com/caravana-do-absurdo/pop-out-on-hover-element/blob/main/res/img/caravana_podcasts.png?raw=true" />
       </div>
