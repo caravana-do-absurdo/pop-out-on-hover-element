@@ -6,6 +6,11 @@ const podcastURLs = {
   cos: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/',
   dl:  'https://caravanadoabsurdo.com.br/tag/descanso-longo/'
 }
+const getReleaseDate = {
+  rpg: new Date('2021-09-30'),
+  cos: new Date('2021-10-02'),
+  dl:  new Date('2021-10-01')
+}
 
 const getTreatedPodcastID = (podcastID) => {
   return podcastID.toLowerCase()
@@ -20,7 +25,18 @@ const PodcastInfoFetcher = (podcastID) => ({
   },
   getOnClickURLToRedirect: () => {
     return podcastURLs[getTreatedPodcastID(podcastID)] ? podcastURLs[getTreatedPodcastID(podcastID)] : null
-  }
+  },
+  getReleaseDate: () => {
+    return getReleaseDate[getTreatedPodcastID(podcastID)] ? getReleaseDate[getTreatedPodcastID(podcastID)] : null
+  },
+  isPodcastReleased: (today) => {
+    let releaseDateOfPodcast = getReleaseDate[getTreatedPodcastID(podcastID)] ? getReleaseDate[getTreatedPodcastID(podcastID)] : null
+    if(releaseDateOfPodcast == null) {
+      return true
+    } else {
+      return today >= releaseDateOfPodcast
+    }
+  },
 });
 
 module.exports = PodcastInfoFetcher;
