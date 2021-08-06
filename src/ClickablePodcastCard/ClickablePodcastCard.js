@@ -17,7 +17,7 @@ const ClickablePodcastCard = async (podcastID, width) => {
   return `
     <a class="link-wrapper" href="${onClickURLToRedirect}" target="_blank">
       <div class="element-wrapper">
-        ${isPodcastAvailable ? '' : `<p class="release-date">Lançamento official: \n${releaseDate.getDate()}.${releaseDate.getMonth() + 1}.${releaseDate.getFullYear()}</p>`}
+        ${isPodcastAvailable ? '' : `<p class="release-date">Disponivel em: \n${releaseDate.getDate()}.${releaseDate.getMonth() + 1}.${releaseDate.getFullYear()}</p>`}
         <img class="background-image" src="${backgroundImgURL}" />
         <img class="foreground-image ${isPodcastAvailable ? '' : 'hidden'}" src="${foregroundImgURL}" />
         <img class="podcast-name" src="https://github.com/caravana-do-absurdo/pop-out-on-hover-element/blob/main/res/img/caravana_podcasts.png?raw=true" />
