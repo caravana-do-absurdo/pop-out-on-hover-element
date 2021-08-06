@@ -71,6 +71,27 @@ const HorizontalPodcastsList = async (width) => {
         -webkit-transform: rotateX(40deg);
         -webkit-filter: brightness(50%) blur(2px);
       }
+
+      .release-date {
+        z-index: 999;
+        position: absolute;
+        bottom: ${width / 3}px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+        width: 80%;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 2px #000;
+        transition: .5s ease;
+        -webkit-transition: .5s ease;
+      }
+
+      .element-wrapper:hover .release-date {
+        transform: translate3d(0px, -${width * 0.25}px, ${width / 3}px);
+        -webkit-transform: translate3d(0px, -${width * 0.25}px, ${width / 3}px);
+      }
       
       .foreground-image {
         position: absolute;
@@ -80,7 +101,12 @@ const HorizontalPodcastsList = async (width) => {
         transition: .5s ease;
         filter: brightness(90%);
         -webkit-transition: .5s ease;
-        -webkit-filter: brightness(90%)
+        -webkit-filter: brightness(90%);
+      }
+
+      .foreground-image.hidden {
+        filter: brightness(0%);
+        -webkit-filter: brightness(0%);
       }
       
       .element-wrapper:hover .foreground-image {
@@ -90,6 +116,11 @@ const HorizontalPodcastsList = async (width) => {
         -webkit-filter: brightness(100%)
         transform: translate3d(0px, -${width * 0.35}px, ${width / 3}px);
         -webkit-transform: translate3d(0px, -${width * 0.35}px, ${width / 3}px);
+      }
+
+      .element-wrapper:hover .foreground-image.hidden {
+        filter: brightness(0%);
+        -webkit-filter: brightness(0%);
       }
       
       .podcast-name {
