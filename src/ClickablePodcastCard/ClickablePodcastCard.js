@@ -11,14 +11,19 @@ const ClickablePodcastCard = async (podcastID, width) => {
     throw(error)
   }
 
-  const {foregroundImgURL, backgroundImgURL, onClickURLToRedirect, releaseDate, isPodcastAvailable} = fetchAllDataForPodcastID(podcastID)
+  const {foregroundImgURL, backgroundImgURL, blackedOutBackgroundImgURL, onClickURLToRedirect, releaseDate, isPodcastAvailable} = fetchAllDataForPodcastID(podcastID)
   width = parseInt(width) || DEFAULT_SIZE
+
+  let backgroundImgURLToUse = backgroundImgURL
+  if(podcastID == 'cos' && !isPodcastAvailable) {
+    backgroundImgURLToUse = blackedOutBackgroundImgURL
+  }
 
   return `
     <a class="link-wrapper" href="${onClickURLToRedirect}" target="_blank">
       <div class="element-wrapper">
         ${isPodcastAvailable ? '' : `<p class="release-date">Lan&ccedil;amento em: </br>${releaseDate.getDate()}.${releaseDate.getMonth() + 1}.${releaseDate.getFullYear()}</p>`}
-        <img class="background-image" src="${backgroundImgURL}" />
+        <img class="background-image" src="${backgroundImgURLToUse}" />
         <img class="foreground-image ${isPodcastAvailable ? '' : 'hidden'}" src="${foregroundImgURL}" />
         <img class="podcast-name" src="https://github.com/caravana-do-absurdo/pop-out-on-hover-element/blob/main/res/img/caravana_podcasts.png?raw=true" />
       </div>
@@ -39,15 +44,16 @@ const isPodcastValid = (podcastID) => {
 };
 
 const fetchAllDataForPodcastID = (podcastID) => {
-  const { getForegroundImageURL, getBackgroundImageURL, getOnClickURLToRedirect, getReleaseDate, isPodcastReleased } = PodcastInfoFetcher(podcastID);
+  const { getForegroundImageURL, getBackgroundImageURL, getBlackedOutBackgroundImageURL, getOnClickURLToRedirect, getReleaseDate, isPodcastReleased } = PodcastInfoFetcher(podcastID);
 
   const foregroundImgURL = getForegroundImageURL()
   const backgroundImgURL = getBackgroundImageURL()
+  const blackedOutBackgroundImgURL= getBlackedOutBackgroundImageURL()
   const onClickURLToRedirect = getOnClickURLToRedirect()
   const releaseDate = getReleaseDate()
   const isPodcastAvailable = isPodcastReleased(new Date())
 
-  return {foregroundImgURL, backgroundImgURL, onClickURLToRedirect, releaseDate, isPodcastAvailable}
+  return {foregroundImgURL, backgroundImgURL, blackedOutBackgroundImgURL, onClickURLToRedirect, releaseDate, isPodcastAvailable}
 }
 
 module.exports = {
