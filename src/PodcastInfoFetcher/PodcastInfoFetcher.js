@@ -8,9 +8,9 @@ const podcastURLs = {
   dl:  'https://caravanadoabsurdo.com.br/tag/descanso-longo/'
 }
 const releaseDates = {
-  rpg: new Date('2021-09-30'),
+  rpg: new Date('2021-10-01'),
   cos: new Date('2021-10-02'),
-  dl:  new Date('2021-10-01')
+  dl:  new Date('2021-09-30')
 }
 
 const getTreatedPodcastID = (podcastID) => {
