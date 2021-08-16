@@ -39,7 +39,7 @@ const HorizontalPodcastsList = async (width) => {
       }
 
       .element-wrapper {
-        margin: 0px 0px ${width * 0.05}px ${width * 0.1}px;
+        margin: 0px 0px ${width * 0.05}px ${width * 0.15}px;
         position: relative;
         height: ${width * 1.30}px;
         width: ${width}px;
