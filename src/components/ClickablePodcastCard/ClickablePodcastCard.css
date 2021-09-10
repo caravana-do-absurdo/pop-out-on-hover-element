@@ -1,0 +1,105 @@
+a.link-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.element-wrapper {
+  margin: 0px;
+  position: relative;
+  perspective: 600px;
+  transition: .4s ease;
+  -webkit-transition: .4s ease;
+  text-align: center;
+}
+
+.background-image {
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  height: auto;
+  aspect-ratio: 1;
+  transition: .4s ease;
+  transform-style: flat;
+  transform: rotateX(0deg);
+  filter: brightness(100%);
+  -webkit-transition: .4s ease;
+  -webkit-transform-style: flat;
+  -webkit-transform: rotateX(0deg);
+  -webkit-filter: brightness(100%);
+}
+
+.element-wrapper:hover .background-image {
+  transform: rotateX(35deg);
+  filter: brightness(50%) blur(2px);
+  -webkit-transform: rotateX(35deg);
+  -webkit-filter: brightness(50%) blur(2px);
+}
+
+.release-date {
+  z-index: 999;
+  position: absolute;
+  bottom: 130px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  width: 70%;
+  left: 15%;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000;
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+}
+
+.element-wrapper:hover .release-date {
+  transform: translateY(-100px) translateZ(50px);
+  -webkit-transform: translateY(-100px) translateZ(50px);
+}
+
+.foreground-image {
+  position: absolute;
+  bottom: 0%;
+  left: 15%;
+  width: 70%;
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+}
+
+.foreground-image.hidden {
+  filter: brightness(0%);
+  -webkit-filter: brightness(0%);
+}
+
+.element-wrapper:hover .foreground-image {
+  opacity: 1;
+  display: block;
+  left: 5%;
+  width: 90%;
+  bottom: 10%;
+}
+
+.element-wrapper:hover .foreground-image.hidden {
+  filter: brightness(0%);
+  -webkit-filter: brightness(0%);
+}
+
+.podcast-name {
+  z-Index: 10;
+  position: absolute; 
+  bottom: 0%;
+  right: 10%;
+  max-width: 30%;
+  margin: auto;
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+}
+
+.element-wrapper:hover .podcast-name {
+  bottom: 5%;
+  right: 30%;
+  max-width: 40%;
+}

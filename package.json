@@ -1,24 +1,38 @@
 {
   "name": "pop-out-on-hover-element",
-  "version": "1.0.0",
-  "description": "Simple component that shows a foreground image and a background images simulating a 3d \"pop out\" animation",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "jest",
-    "test-watch": "jest --watchAll"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/caravana-do-absurdo/pop-out-on-hover-element.git"
-  },
-  "author": "Gabcvit",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/caravana-do-absurdo/pop-out-on-hover-element/issues"
-  },
-  "homepage": "https://github.com/caravana-do-absurdo/pop-out-on-hover-element#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "jest": "^27.0.6"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "PORT=3006 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
