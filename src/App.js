@@ -26,6 +26,7 @@ export default class App extends React.Component {
         {
           id: 'cos',
           backgroundImageURL: './img/cos_background.png',
+          blackedOutBackgroundImageURL: './img/cos_background_hidden.png',
           foregroundImageURL: './img/cos_foreground.png',
           releaseDate: new Date('2021-10-02'),
           link: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/'

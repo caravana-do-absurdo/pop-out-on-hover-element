@@ -6,7 +6,7 @@ export default class ClickablePodcastCard extends React.Component {
   constructor(props) {
     super(props)
 
-    let today = new Date('10-01-2021')
+    let today = new Date()
 
     this.state = {
       isPodcastLaunched: today > this.props.podcast.releaseDate,
@@ -44,7 +44,7 @@ export default class ClickablePodcastCard extends React.Component {
                 {`Lançamento em:\n${this.props.podcast.releaseDate.getDate()}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
               </p>
           }
-          <img class="background-image" src={this.props.podcast.backgroundImageURL} />
+          <img class="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
           <img className={['foreground-image', this.state.isPodcastLaunched ? null : 'hidden'].join(" ")} src={this.props.podcast.foregroundImageURL} />
           <img class="podcast-name" src="./img/caravana_podcasts.png" />
         </div>
