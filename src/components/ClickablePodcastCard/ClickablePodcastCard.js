@@ -70,6 +70,14 @@ export default class ClickablePodcastCard extends React.Component {
     return fontSizeThatFits
   }
 
+  getTreatedDate(date) {
+    if(date > 10) {
+      return date
+    } else {
+      return '0' + date
+    }
+  }
+
 
   render() {
     return (
@@ -78,7 +86,7 @@ export default class ClickablePodcastCard extends React.Component {
           {
             this.state.isPodcastLaunched ? null : 
               <p class="release-date" style={this.generateReleaseDateLabelStyle()}>
-                {`Lançamento em:\n${this.props.podcast.releaseDate.getDate()}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
+                {`Lançamento em: ${this.getTreatedDate(this.props.podcast.releaseDate.getDate())}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
               </p>
           }
           <img class="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
