@@ -35,6 +35,13 @@ export default class App extends React.Component {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight
     }
+
+    window.addEventListener('resize', () => {
+      this.setState({
+        windowHeight: window.innerHeight,
+        windowWidth: window.innerWidth
+      })
+    })
   }
 
   render() {

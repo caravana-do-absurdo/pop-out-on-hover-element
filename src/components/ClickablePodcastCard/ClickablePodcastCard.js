@@ -10,13 +10,13 @@ export default class ClickablePodcastCard extends React.Component {
 
     this.state = {
       isPodcastLaunched: today > this.props.podcast.releaseDate,
-      elementWrapperStyle: this.generateElementWrapperStyle()
+      elementWrapperStyle: this.generateElementWrapperStyle(props)
     }
   }
 
-  generateElementWrapperStyle() {
-    let availableWidth = this.props.width
-    let availableHeight = this.props.height
+  generateElementWrapperStyle(props) {
+    let availableWidth = props.width
+    let availableHeight = props.height
     let marginTop = (availableHeight - availableWidth) / 2
 
     return {
@@ -34,13 +34,43 @@ export default class ClickablePodcastCard extends React.Component {
     }
   };
 
+  componentDidUpdate(props) {
+    if(this.state.elementWrapperStyle.width != props.width) {
+      this.setState({elementWrapperStyle: this.generateElementWrapperStyle(props)})
+    }
+  }
+
+  getSuitableFontSizeForWidth() {
+    let widthAvailable = this.state.elementWrapperStyle.width
+    let fontSizeThatFits = 24
+
+    if(widthAvailable < 100) {
+      fontSizeThatFits = 6
+    } else if(widthAvailable < 150) {
+      fontSizeThatFits = 10
+    } else if(widthAvailable < 200) {
+      fontSizeThatFits = 14
+    } else if(widthAvailable < 250) {
+      fontSizeThatFits = 16
+    } else if(widthAvailable < 300) {
+      fontSizeThatFits = 18
+    } else if(widthAvailable < 350) {
+      fontSizeThatFits = 20
+    } else if(widthAvailable < 400) {
+      fontSizeThatFits = 22
+    } 
+
+    return fontSizeThatFits
+  }
+
+
   render() {
     return (
       <a class="link-wrapper" href="#" onClick={this.handlePodcastClick} style={{height: this.props.height, width: this.props.width}}>
         <div class="element-wrapper" style={this.state.elementWrapperStyle}>
           {
             this.state.isPodcastLaunched ? null : 
-              <p class="release-date">
+              <p class="release-date" style={{fontSize: this.getSuitableFontSizeForWidth()}}>
                 {`Lançamento em:\n${this.props.podcast.releaseDate.getDate()}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
               </p>
           }
