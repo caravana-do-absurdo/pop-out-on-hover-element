@@ -33,13 +33,15 @@ export default class App extends React.Component {
         }
       ],
       windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight
+      windowHeight: window.innerHeight,
+      isHorizontal: window.innerWidth > window.innerHeight 
     }
 
     window.addEventListener('resize', () => {
       this.setState({
         windowHeight: window.innerHeight,
-        windowWidth: window.innerWidth
+        windowWidth: window.innerWidth,
+        isHorizontal: window.innerWidth > window.innerHeight
       })
     })
   }
@@ -48,13 +50,13 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div class="horizontal-slider">
+          <div className={[this.state.isHorizontal ? 'horizontal-slider' : 'vertical-slider']}>
             {
               this.state.podcasts.map(singlePodcast => {
                 return <ClickablePodcastCard 
                         podcast={singlePodcast} 
                         height={this.state.windowHeight} 
-                        width={this.state.windowWidth / 3} 
+                        width={this.state.isHorizontal ? this.state.windowWidth / 3 : this.state.windowWidth} 
                       />
               })
             }
