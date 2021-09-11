@@ -8,6 +8,7 @@ a.link-wrapper {
   margin: 0px;
   position: relative;
   perspective: 600px;
+  -webkit-perspective: 600px;
   transition: .4s ease;
   -webkit-transition: .4s ease;
   text-align: center;
@@ -32,16 +33,15 @@ a.link-wrapper {
 }
 
 .element-wrapper:hover .background-image {
-  transform: rotateX(35deg);
+  transform: rotateX(35deg) translateZ(-150px);
   filter: brightness(50%) blur(2px);
-  -webkit-transform: rotateX(35deg);
+  -webkit-transform: rotateX(35deg) translateZ(-150px);
   -webkit-filter: brightness(50%) blur(2px);
 }
 
 .release-date {
   z-index: 999;
   position: absolute;
-  bottom: 130px;
   left: 0px;
   right: 0px;
   text-align: center;

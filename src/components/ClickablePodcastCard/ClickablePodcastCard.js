@@ -35,8 +35,15 @@ export default class ClickablePodcastCard extends React.Component {
   };
 
   componentDidUpdate(props) {
-    if(this.state.elementWrapperStyle.width != props.width) {
+    if(this.state.elementWrapperStyle.width != props.width && this.state.elementWrapperStyle.height != props.height) {
       this.setState({elementWrapperStyle: this.generateElementWrapperStyle(props)})
+    }
+  }
+
+  generateReleaseDateLabelStyle() {
+    return {
+      bottom: this.state.elementWrapperStyle.width / 3,
+      fontSize: this.getSuitableFontSizeForWidth()
     }
   }
 
@@ -70,12 +77,12 @@ export default class ClickablePodcastCard extends React.Component {
         <div class="element-wrapper" style={this.state.elementWrapperStyle}>
           {
             this.state.isPodcastLaunched ? null : 
-              <p class="release-date" style={{fontSize: this.getSuitableFontSizeForWidth()}}>
+              <p class="release-date" style={this.generateReleaseDateLabelStyle()}>
                 {`Lançamento em:\n${this.props.podcast.releaseDate.getDate()}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
               </p>
           }
           <img class="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
-          <img className={['foreground-image', this.state.isPodcastLaunched ? null : 'hidden'].join(" ")} src={this.props.podcast.foregroundImageURL} />
+          <img class="foreground-image" src={this.state.isPodcastLaunched ? this.props.podcast.foregroundImageURL : this.props.podcast.foregroundImageURL.replace('.png', '_hidden.png')} />
           <img class="podcast-name" src="./img/caravana_podcasts.png" />
         </div>
       </a>
