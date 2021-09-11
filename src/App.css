@@ -26,6 +26,14 @@ body {
    margin: 0px;
  }
 
+ .vertical-slider {
+  width: 100%;
+  position: relative;
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+ }
+
  .horizontal-slider::-webkit-scrollbar {
    display: none;
  }
