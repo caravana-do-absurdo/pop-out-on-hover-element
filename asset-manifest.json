@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pop-out-on-hover-element/static/css/main.ff7e0a46.chunk.css",
+    "main.js": "/pop-out-on-hover-element/static/js/main.091384cf.chunk.js",
+    "main.js.map": "/pop-out-on-hover-element/static/js/main.091384cf.chunk.js.map",
+    "runtime-main.js": "/pop-out-on-hover-element/static/js/runtime-main.17109df4.js",
+    "runtime-main.js.map": "/pop-out-on-hover-element/static/js/runtime-main.17109df4.js.map",
+    "static/js/2.3f27520c.chunk.js": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js",
+    "static/js/2.3f27520c.chunk.js.map": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js.map",
+    "static/js/3.9b1ddde7.chunk.js": "/pop-out-on-hover-element/static/js/3.9b1ddde7.chunk.js",
+    "static/js/3.9b1ddde7.chunk.js.map": "/pop-out-on-hover-element/static/js/3.9b1ddde7.chunk.js.map",
+    "index.html": "/pop-out-on-hover-element/index.html",
+    "static/css/main.ff7e0a46.chunk.css.map": "/pop-out-on-hover-element/static/css/main.ff7e0a46.chunk.css.map",
+    "static/js/2.3f27520c.chunk.js.LICENSE.txt": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17109df4.js",
+    "static/js/2.3f27520c.chunk.js",
+    "static/css/main.ff7e0a46.chunk.css",
+    "static/js/main.091384cf.chunk.js"
+  ]
+}
