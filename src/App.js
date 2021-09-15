@@ -13,14 +13,14 @@ export default class App extends React.Component {
           id: 'dl',
           backgroundImageURL: './img/dl_background.png',
           foregroundImageURL: './img/dl_foreground.png',
-          releaseDate: new Date('2021-09-30'),
+          releaseDate: new Date("2021-09-30T06:00:00.000-03:00"),
           link: 'https://caravanadoabsurdo.com.br/tag/descanso-longo/'
         },
         {
           id: 'rpg',
           backgroundImageURL: './img/rpg_background.png',
           foregroundImageURL: './img/rpg_foreground.png',
-          releaseDate: new Date('2021-10-01'),
+          releaseDate: new Date("2021-10-01T06:00:00.000-03:00"),
           link: 'https://caravanadoabsurdo.com.br/tag/mas-e-o-rpg/'
         },
         {
@@ -28,7 +28,7 @@ export default class App extends React.Component {
           backgroundImageURL: './img/cos_background.png',
           blackedOutBackgroundImageURL: './img/cos_background_hidden.png',
           foregroundImageURL: './img/cos_foreground.png',
-          releaseDate: new Date('2021-10-02'),
+          releaseDate: new Date("2021-10-02T06:00:00.000-03:00"),
           link: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/'
         }
       ],
@@ -54,6 +54,7 @@ export default class App extends React.Component {
             {
               this.state.podcasts.map(singlePodcast => {
                 return <ClickablePodcastCard 
+                        key={singlePodcast.id}
                         podcast={singlePodcast} 
                         height={this.state.windowHeight} 
                         width={this.state.isHorizontal ? this.state.windowWidth / 3 : this.state.windowWidth} 

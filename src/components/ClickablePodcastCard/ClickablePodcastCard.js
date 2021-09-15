@@ -35,7 +35,7 @@ export default class ClickablePodcastCard extends React.Component {
   };
 
   componentDidUpdate(props) {
-    if(this.state.elementWrapperStyle.width != props.width && this.state.elementWrapperStyle.height != props.height) {
+    if(this.state.elementWrapperStyle.width !== props.width && this.state.elementWrapperStyle.height !== props.height) {
       this.setState({elementWrapperStyle: this.generateElementWrapperStyle(props)})
     }
   }
@@ -80,18 +80,19 @@ export default class ClickablePodcastCard extends React.Component {
 
 
   render() {
+    console.log(this.props.podcast)
     return (
-      <a class="link-wrapper" href="#" onClick={this.handlePodcastClick} style={{height: this.props.height, width: this.props.width}}>
-        <div class="element-wrapper" style={this.state.elementWrapperStyle}>
+      <a className="link-wrapper" href="#" onClick={this.handlePodcastClick} style={{height: this.props.height, width: this.props.width}}>
+        <div className="element-wrapper" style={this.state.elementWrapperStyle}>
           {
             this.state.isPodcastLaunched ? null : 
-              <p class="release-date" style={this.generateReleaseDateLabelStyle()}>
+              <p className="release-date" style={this.generateReleaseDateLabelStyle()}>
                 {`Lançamento em: ${this.getTreatedDate(this.props.podcast.releaseDate.getDate())}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
               </p>
           }
-          <img class="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
-          <img class="foreground-image" src={this.state.isPodcastLaunched ? this.props.podcast.foregroundImageURL : this.props.podcast.foregroundImageURL.replace('.png', '_hidden.png')} />
-          <img class="podcast-name" src="./img/caravana_podcasts.png" />
+          <img className="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
+          <img className="foreground-image" src={this.state.isPodcastLaunched ? this.props.podcast.foregroundImageURL : this.props.podcast.foregroundImageURL.replace('.png', '_hidden.png')} />
+          <img className="podcast-name" src="./img/caravana_podcasts.png" />
         </div>
       </a>
     );
