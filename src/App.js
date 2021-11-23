@@ -24,13 +24,21 @@ export default class App extends React.Component {
           link: 'https://caravanadoabsurdo.com.br/tag/mas-e-o-rpg/'
         },
         {
+          id: 'dc',
+          backgroundImageURL: './img/dc_background.png',
+          blackedOutBackgroundImageURL: './img/dc_background_hidden.png',
+          foregroundImageURL: './img/dc_foreground.png',
+          releaseDate: new Date("2021-10-02T06:00:00.000-03:00"),
+          link: 'https://caravanadoabsurdo.com.br/tag/descanso-curto/'
+        },
+        {
           id: 'cos',
           backgroundImageURL: './img/cos_background.png',
           blackedOutBackgroundImageURL: './img/cos_background_hidden.png',
           foregroundImageURL: './img/cos_foreground.png',
           releaseDate: new Date("2021-10-02T06:00:00.000-03:00"),
           link: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/'
-        }
+        },
       ],
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
@@ -57,7 +65,7 @@ export default class App extends React.Component {
                         key={singlePodcast.id}
                         podcast={singlePodcast} 
                         height={this.state.windowHeight} 
-                        width={this.state.isHorizontal ? this.state.windowWidth / 3 : this.state.windowWidth} 
+                        width={this.state.isHorizontal ? this.state.windowWidth / this.state.podcasts.length : this.state.windowWidth} 
                       />
               })
             }
