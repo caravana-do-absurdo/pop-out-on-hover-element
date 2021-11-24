@@ -63,8 +63,8 @@ a.link-wrapper {
 .foreground-image {
   position: absolute;
   bottom: 0%;
-  left: 15%;
-  width: 70%;
+  left: 10%;
+  width: 80%;
   transition: .5s ease;
   -webkit-transition: .5s ease;
 }
