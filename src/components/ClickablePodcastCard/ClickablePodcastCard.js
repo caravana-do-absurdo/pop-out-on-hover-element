@@ -6,10 +6,7 @@ export default class ClickablePodcastCard extends React.Component {
   constructor(props) {
     super(props)
 
-    let today = new Date()
-
     this.state = {
-      isPodcastLaunched: today > this.props.podcast.releaseDate,
       elementWrapperStyle: this.generateElementWrapperStyle(props)
     }
   }
@@ -29,73 +26,42 @@ export default class ClickablePodcastCard extends React.Component {
 
   handlePodcastClick = (e) => {
     e.preventDefault();
-    if(this.state.isPodcastLaunched) {
-      window.open(this.props.podcast.link, "_blank"); 
-    }
+    window.open(this.props.podcast.link, "_blank");
   };
 
   componentDidUpdate(props) {
-    if(this.state.elementWrapperStyle.width !== props.width && this.state.elementWrapperStyle.height !== props.height) {
-      this.setState({elementWrapperStyle: this.generateElementWrapperStyle(props)})
+    if (this.state.elementWrapperStyle.width !== props.width && this.state.elementWrapperStyle.height !== props.height) {
+      this.setState({ elementWrapperStyle: this.generateElementWrapperStyle(props) })
     }
   }
 
-  generateReleaseDateLabelStyle() {
-    return {
-      bottom: this.state.elementWrapperStyle.width / 3,
-      fontSize: this.getSuitableFontSizeForWidth()
-    }
+
+  requireImageForPodcast(podcastId, imagePosition) {
+    return require(`../../assets/img/${podcastId}_${imagePosition}.png`);
   }
-
-  getSuitableFontSizeForWidth() {
-    let widthAvailable = this.state.elementWrapperStyle.width
-    let fontSizeThatFits = 24
-
-    if(widthAvailable < 100) {
-      fontSizeThatFits = 6
-    } else if(widthAvailable < 150) {
-      fontSizeThatFits = 10
-    } else if(widthAvailable < 200) {
-      fontSizeThatFits = 14
-    } else if(widthAvailable < 250) {
-      fontSizeThatFits = 16
-    } else if(widthAvailable < 300) {
-      fontSizeThatFits = 18
-    } else if(widthAvailable < 350) {
-      fontSizeThatFits = 20
-    } else if(widthAvailable < 400) {
-      fontSizeThatFits = 22
-    } 
-
-    return fontSizeThatFits
-  }
-
-  getTreatedDate(date) {
-    if(date > 10) {
-      return date
-    } else {
-      return '0' + date
-    }
-  }
-
 
   render() {
-    console.log(this.props.podcast)
     return (
-      <a className="link-wrapper" href="#" onClick={this.handlePodcastClick} style={{height: this.props.height, width: this.props.width}}>
+      <a className="link-wrapper" href="#" onClick={this.handlePodcastClick} style={{ height: this.props.height, width: this.props.width }}>
         <div className="element-wrapper" style={this.state.elementWrapperStyle}>
-          {
-            this.state.isPodcastLaunched ? null : 
-              <p className="release-date" style={this.generateReleaseDateLabelStyle()}>
-                {`Lançamento em: ${this.getTreatedDate(this.props.podcast.releaseDate.getDate())}.${this.props.podcast.releaseDate.getMonth() + 1}.${this.props.podcast.releaseDate.getFullYear()}`}
-              </p>
-          }
-          <img className="background-image" src={this.state.isPodcastLaunched || !this.props.podcast.blackedOutBackgroundImageURL  ? this.props.podcast.backgroundImageURL : this.props.podcast.blackedOutBackgroundImageURL} />
-          <img className="foreground-image" src={this.state.isPodcastLaunched ? this.props.podcast.foregroundImageURL : this.props.podcast.foregroundImageURL.replace('.png', '_hidden.png')} />
-          <img className="podcast-name" src="./img/caravana_podcasts.png" />
+          <img
+            className="background-image"
+            src={this.requireImageForPodcast(this.props.podcast.id, 'background')}
+            alt='podcast background'
+          />
+          <img
+            className="foreground-image"
+            src={this.requireImageForPodcast(this.props.podcast.id, 'foreground')}
+            alt='podcast foreground'
+          />
+          <img
+            className="podcast-name"
+            src={require('../../assets/img/caravana_podcasts.png')}
+            alt='podcast footer'
+          />
         </div>
       </a>
     );
   }
-  
+
 }

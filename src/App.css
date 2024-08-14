@@ -10,35 +10,38 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: visible;
 }
 
 body {
   /* overflow: hidden; */
   background-color: #23272A;
- }
+}
 
- .horizontal-slider {
-   width: 100%;
-   position: relative;
-   overflow-x: hidden;
-   overflow-y: hidden;
-   padding: 0px;
-   margin: 0px;
- }
+.horizontal-slider {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+}
 
- .vertical-slider {
+.vertical-slider {
   width: 100%;
   position: relative;
   overflow-y: hidden;
   padding: 0px;
   margin: 0px;
- }
+}
 
- .horizontal-slider::-webkit-scrollbar {
-   display: none;
- }
+.horizontal-slider::-webkit-scrollbar {
+  display: none;
+}
 
- .horizontal-slider {
-   -ms-overflow-style: none;  /* IE and Edge */
-   scrollbar-width: none;  /* Firefox */
- }
+.horizontal-slider {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

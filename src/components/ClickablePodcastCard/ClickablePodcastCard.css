@@ -69,10 +69,6 @@ a.link-wrapper {
   -webkit-transition: .5s ease;
 }
 
-.foreground-image.hidden {
-  filter: brightness(0%);
-  -webkit-filter: brightness(0%);
-}
 
 .element-wrapper:hover .foreground-image {
   opacity: 1;
@@ -82,14 +78,9 @@ a.link-wrapper {
   bottom: 10%;
 }
 
-.element-wrapper:hover .foreground-image.hidden {
-  filter: brightness(0%);
-  -webkit-filter: brightness(0%);
-}
-
 .podcast-name {
   z-Index: 10;
-  position: absolute; 
+  position: absolute;
   bottom: 0%;
   right: 10%;
   max-width: 30%;

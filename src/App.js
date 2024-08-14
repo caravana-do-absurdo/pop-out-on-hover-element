@@ -8,41 +8,31 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      podcasts: [
-        {
-          id: 'dl',
-          backgroundImageURL: './img/dl_background.png',
-          foregroundImageURL: './img/dl_foreground.png',
-          releaseDate: new Date("2021-09-30T06:00:00.000-03:00"),
-          link: 'https://caravanadoabsurdo.com.br/tag/descanso-longo/'
-        },
-        {
-          id: 'rpg',
-          backgroundImageURL: './img/rpg_background.png',
-          foregroundImageURL: './img/rpg_foreground.png',
-          releaseDate: new Date("2021-10-01T06:00:00.000-03:00"),
-          link: 'https://caravanadoabsurdo.com.br/tag/mas-e-o-rpg/'
-        },
-        {
+      podcasts: {
+        'dc': {
           id: 'dc',
-          backgroundImageURL: './img/dc_background.png',
-          blackedOutBackgroundImageURL: './img/dc_background_hidden.png',
-          foregroundImageURL: './img/dc_foreground.png',
-          releaseDate: new Date("2021-10-02T06:00:00.000-03:00"),
-          link: 'https://caravanadoabsurdo.com.br/tag/descanso-curto/'
+          link: 'https://caravanadoabsurdo.com.br/tag/descanso-curto/',
         },
-        {
+        'dl': {
+          id: 'dl',
+          link: 'https://caravanadoabsurdo.com.br/tag/descanso-longo/',
+        },
+        '15mdc': {
+          id: '15mdc',
+          link: 'https://caravanadoabsurdo.com.br/tag/15-minutos-de-caos/',
+        },
+        'rpg': {
+          id: 'rpg',
+          link: 'https://caravanadoabsurdo.com.br/tag/mas-e-o-rpg/',
+        },
+        'cos': {
           id: 'cos',
-          backgroundImageURL: './img/cos_background.png',
-          blackedOutBackgroundImageURL: './img/cos_background_hidden.png',
-          foregroundImageURL: './img/cos_foreground.png',
-          releaseDate: new Date("2021-10-02T06:00:00.000-03:00"),
-          link: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/'
+          link: 'https://caravanadoabsurdo.com.br/tag/maldicao-de-strahd/',
         },
-      ],
+      },
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
-      isHorizontal: window.innerWidth > window.innerHeight 
+      isHorizontal: window.innerWidth > window.innerHeight
     }
 
     window.addEventListener('resize', () => {
@@ -55,24 +45,48 @@ export default class App extends React.Component {
   }
 
   render() {
+    const cardHeight = (this.state.windowHeight) / 2;
+    const cardWidth = this.state.isHorizontal ? (this.state.windowWidth) / 4 : this.state.windowWidth;
     return (
       <div className="App">
         <header className="App-header">
           <div className={[this.state.isHorizontal ? 'horizontal-slider' : 'vertical-slider']}>
-            {
-              this.state.podcasts.map(singlePodcast => {
-                return <ClickablePodcastCard 
-                        key={singlePodcast.id}
-                        podcast={singlePodcast} 
-                        height={this.state.windowHeight} 
-                        width={this.state.isHorizontal ? this.state.windowWidth / this.state.podcasts.length : this.state.windowWidth} 
-                      />
-              })
-            }
+            <ClickablePodcastCard
+              key={'dc'}
+              podcast={this.state.podcasts['dc']}
+              height={cardHeight}
+              width={cardWidth}
+            />
+            <ClickablePodcastCard
+              key={'dl'}
+              podcast={this.state.podcasts['dl']}
+              height={cardHeight}
+              width={cardWidth}
+            />
+            <ClickablePodcastCard
+              key={'15mdc'}
+              podcast={this.state.podcasts['15mdc']}
+              height={cardHeight}
+              width={cardWidth}
+            />
+          </div>
+          <div className={[this.state.isHorizontal ? 'horizontal-slider' : 'vertical-slider']}>
+            <ClickablePodcastCard
+              key={'rpg'}
+              podcast={this.state.podcasts['rpg']}
+              height={cardHeight}
+              width={cardWidth}
+            />
+            <ClickablePodcastCard
+              key={'cos'}
+              podcast={this.state.podcasts['cos']}
+              height={cardHeight}
+              width={cardWidth}
+            />
           </div>
         </header>
       </div>
     );
   }
-  
+
 }
