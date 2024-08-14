@@ -45,8 +45,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    const cardHeight = (this.state.windowHeight - 100) / 2;
-    const cardWidth = this.state.isHorizontal ? (this.state.windowWidth - 100) / 3 : this.state.windowWidth;
+    const cardHeight = (this.state.windowHeight) / 2;
+    const cardWidth = this.state.isHorizontal ? (this.state.windowWidth) / 4 : this.state.windowWidth;
     return (
       <div className="App">
         <header className="App-header">

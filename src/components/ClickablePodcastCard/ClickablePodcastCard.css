@@ -2,7 +2,6 @@ a.link-wrapper {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  background-color: yellow;
 }
 
 .element-wrapper {
@@ -13,7 +12,6 @@ a.link-wrapper {
   transition: .4s ease;
   -webkit-transition: .4s ease;
   text-align: center;
-  background-color: red;
 }
 
 .background-image {
