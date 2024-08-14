@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/pop-out-on-hover-element/static/css/main.e8722d36.chunk.css",
-    "main.js": "/pop-out-on-hover-element/static/js/main.700f1ed5.chunk.js",
-    "main.js.map": "/pop-out-on-hover-element/static/js/main.700f1ed5.chunk.js.map",
-    "runtime-main.js": "/pop-out-on-hover-element/static/js/runtime-main.17109df4.js",
-    "runtime-main.js.map": "/pop-out-on-hover-element/static/js/runtime-main.17109df4.js.map",
-    "static/js/2.3f27520c.chunk.js": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js",
-    "static/js/2.3f27520c.chunk.js.map": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js.map",
-    "static/js/3.9b1ddde7.chunk.js": "/pop-out-on-hover-element/static/js/3.9b1ddde7.chunk.js",
-    "static/js/3.9b1ddde7.chunk.js.map": "/pop-out-on-hover-element/static/js/3.9b1ddde7.chunk.js.map",
+    "main.css": "/pop-out-on-hover-element/static/css/main.29a52865.css",
+    "main.js": "/pop-out-on-hover-element/static/js/main.3e47ac1f.js",
+    "static/js/453.cdba8c8c.chunk.js": "/pop-out-on-hover-element/static/js/453.cdba8c8c.chunk.js",
+    "static/media/dc_background.png": "/pop-out-on-hover-element/static/media/dc_background.93841ba340d242865a33.png",
+    "static/media/15mdc_background.png": "/pop-out-on-hover-element/static/media/15mdc_background.bc5b64c8e8887c153b17.png",
+    "static/media/cos_background.png": "/pop-out-on-hover-element/static/media/cos_background.6b1c3080af2ec4662d43.png",
+    "static/media/dc_foreground.png": "/pop-out-on-hover-element/static/media/dc_foreground.2600205cbbe80891a800.png",
+    "static/media/dl_foreground.png": "/pop-out-on-hover-element/static/media/dl_foreground.5f73a6fb6e6eb65c86b1.png",
+    "static/media/rpg_background.png": "/pop-out-on-hover-element/static/media/rpg_background.3bccf98c03eb43ee0a05.png",
+    "static/media/dl_background.png": "/pop-out-on-hover-element/static/media/dl_background.c506c742128fe81a75e0.png",
+    "static/media/rpg_foreground.png": "/pop-out-on-hover-element/static/media/rpg_foreground.9b987845cc67befe35cb.png",
+    "static/media/cos_foreground.png": "/pop-out-on-hover-element/static/media/cos_foreground.0e1f0ca4730ba021a811.png",
+    "static/media/15mdc_foreground.png": "/pop-out-on-hover-element/static/media/15mdc_foreground.fda49544e28b14b3d32c.png",
+    "static/media/caravana_podcasts.png": "/pop-out-on-hover-element/static/media/caravana_podcasts.2a89a2eb5a002855c7b9.png",
     "index.html": "/pop-out-on-hover-element/index.html",
-    "static/css/main.e8722d36.chunk.css.map": "/pop-out-on-hover-element/static/css/main.e8722d36.chunk.css.map",
-    "static/js/2.3f27520c.chunk.js.LICENSE.txt": "/pop-out-on-hover-element/static/js/2.3f27520c.chunk.js.LICENSE.txt"
+    "main.29a52865.css.map": "/pop-out-on-hover-element/static/css/main.29a52865.css.map",
+    "main.3e47ac1f.js.map": "/pop-out-on-hover-element/static/js/main.3e47ac1f.js.map",
+    "453.cdba8c8c.chunk.js.map": "/pop-out-on-hover-element/static/js/453.cdba8c8c.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.17109df4.js",
-    "static/js/2.3f27520c.chunk.js",
-    "static/css/main.e8722d36.chunk.css",
-    "static/js/main.700f1ed5.chunk.js"
+    "static/css/main.29a52865.css",
+    "static/js/main.3e47ac1f.js"
   ]
 }
