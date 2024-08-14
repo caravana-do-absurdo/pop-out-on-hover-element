@@ -26,7 +26,7 @@ export default class ClickablePodcastCard extends React.Component {
 
   handlePodcastClick = (e) => {
     e.preventDefault();
-    window.open(this.props.link, "_blank");
+    window.open(this.props.podcast.link, "_blank");
   };
 
   componentDidUpdate(props) {
